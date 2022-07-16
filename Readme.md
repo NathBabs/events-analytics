@@ -8,7 +8,7 @@ This program ingest users events on a page, which are `click` and `pageView` eve
 Clone the repo <br>
 
 ```bash
-git clone
+git clone https://github.com/NathBabs/events-analytics.git
 ```
 
 <br>
