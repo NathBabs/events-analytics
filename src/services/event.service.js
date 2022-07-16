@@ -22,7 +22,6 @@ exports.ingestEvents = async function ({ body }) {
         const foundPageViewEvent = body.find(
             (event) => event.eventType === 'pageView'
         )
-
         // check if click event is found in the request body
         // if it is found , get the last click event date from the cache and compare it with the current timestamp
         // if it is less than 3 seconds then delete all the click events from the request body
