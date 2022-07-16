@@ -1,3 +1,4 @@
+const { describe, beforeEach, afterEach, it } = require('mocha')
 const NodeCache = require('node-cache')
 const eventCache = new NodeCache()
 const moment = require('moment')
@@ -65,5 +66,12 @@ describe('Event Analytics', () => {
         const response = await request.get('/analytics')
         expect(response.status).to.equal(200)
         expect(response.body).to.deep.equal(databaseData)
+    })
+
+    it('should return a 400 when events are received within their constrained time limit', async () => {
+        timestamp = moment().toISOString()
+
+        const response = await request.post('/analytics').send(eventsData)
+        expect(response.status).to.equal(400)
     })
 })

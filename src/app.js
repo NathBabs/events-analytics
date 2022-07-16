@@ -2,8 +2,6 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 3000
-const { logger: log } = require('./utils/logger')
 const morgan = require('morgan')
 const cors = require('cors')
 const routes = require('./routes')
