@@ -1,11 +1,8 @@
 const { logger: log } = require('../utils/logger')
 const validate = (schema) => async (req, res, next) => {
+    const body = req.body
     try {
-        await schema.validate({
-            body: req.body,
-            query: req.query,
-            params: req.params,
-        })
+        await schema.isValid(body)
 
         return next()
     } catch (error) {
